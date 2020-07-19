@@ -8,7 +8,7 @@ def drawdown(returns_series: pd.Series) -> pd.DataFrame:
     """
     wealth_index = 1000 * (1 + returns_series).cumprod()
     previous_peaks = wealth_index.cummax()
-    drawdowns = (wealth_index - previous_peak) / previous_peak
+    drawdowns = (wealth_index - previous_peaks) / previous_peaks
     return pd.DataFrame({
         'Wealth': wealth_index,
         'PreviousPeak': previous_peaks,
